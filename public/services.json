@@ -1,0 +1,44 @@
+[
+    {
+        "id ": 1,
+        "name": "oil change",
+        "price": "100",
+        "description": "lorem10 fjklfgklhg",
+        "img": "https://i.ibb.co/wBPthwy/picture4.png"
+    },
+    {
+        "id": 2,
+        "name": "Petrol Pouring",
+        "price": "200",
+        "description": "fayul fkanhkjldag",
+        "img": "https://i.ibb.co/wCxFgxj/picture3.png"
+    },
+    {
+        "id": 3,
+        "name": "triyer Repair",
+        "price": " 300",
+        "description": "bagk jjjehlgkuiir",
+        "img": "https://i.ibb.co/wCxFgxj/picture3.png"
+    },
+    {
+        "id": 4,
+        "name": "Pumping",
+        "price": "400",
+        "description": "fan ghporiaeupoiugaoe iurepoi",
+        "img": "https://i.ibb.co/wBPthwy/picture4.png"
+    },
+    {
+        "id": 5,
+        "name": "body making",
+        "price": " 500",
+        "description": "sayd8 ngproewaugipoea",
+        "img": "https://i.ibb.co/K5WtxpN/picture1.png"
+    },
+    {
+        "id": 6,
+        "name": "Stear recovering",
+        "price": "600",
+        "description": "ui hsgjhglrkhgkj ",
+        "img": "https://i.ibb.co/wBPthwy/picture4.png"
+    }
+]
