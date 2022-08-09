@@ -1,0 +1,6 @@
+    process.env.REACT_APP_apiKey="AIzaSyDm7Y1yJDF3Xv1a8x7vB3AMvtXMh0qRet4"
+    process.env.REACT_APP_authDomain="genius-car-service1-d0b48.firebaseapp.com"
+    process.env.REACT_APP_projectId="genius-car-service1-d0b48"
+    process.env.REACT_APP_storageBucket="genius-car-service1-d0b48.appspot.com"
+    process.env.REACT_APP_messagingSenderId="1058661002562"
+    process.env.REACT_APP_appId="1:1058661002562:web:78fc5c142da71cbf2e6cdb"

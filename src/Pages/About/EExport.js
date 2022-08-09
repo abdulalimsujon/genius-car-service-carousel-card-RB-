@@ -5,7 +5,7 @@ const EExport = ({ expert }) => {
     const { name, img } = expert;
     return (
 
-        <div className="g-5 text-center col-sm-12 col-md-6 col-lg-4">
+        <div className="g-5 text-center col-sm-12 col-md-6 col-lg-4" id='experts'>
 
             <div className='card' style={{ width: "18rem" }
             }>
