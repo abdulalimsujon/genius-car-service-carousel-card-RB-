@@ -31,7 +31,10 @@ function App() {
           <RequireAuth>
             <Checkout></Checkout>
 
+
           </RequireAuth>
+
+
 
 
         }> </Route>

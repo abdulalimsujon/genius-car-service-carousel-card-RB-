@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './Register.css';
 
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
 
 
 const Register = () => {
+
+    const [agree, SetAgree] = useState(false);
 
 
 
@@ -15,27 +19,40 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
-    const nevigate = useNavigate();
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, error1] = useUpdateProfile(auth);
+    const navigate = useNavigate();
 
     const navigateRegister = () => {
-        nevigate('/login')
+        navigate('/login')
     }
-    const hundleRegister = event => {
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
+    const hundleRegister = async (event) => {
         event.preventDefault();
+
 
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(email, password);
+        //const agree = event.target.terms.checked;
 
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        console.log('Updated profile');
+        navigate('/home');
+
+
+
+
+
+
+        //console.log(email, password);
+
+
 
     }
-
-
-
-
     return (
         <div className='Register-form'>
 
@@ -48,10 +65,15 @@ const Register = () => {
                 <input type="email" name="email" id="" placeholder='your email' required />
 
                 <input type="password" name="password" id="" placeholder='your password' required />
+                <input onClick={() => SetAgree(!agree)} type="checkbox" name="terms" id="terms" />
+                <label className={agree ? 'ps-2 text-primary' : 'ps-2 text-danger'} htmlFor='terms'>Accept turns and condition</label>
 
-                <input type="submit" value="Register" />
-                <p>Already have an account? <Link to='/login' className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}>Please Login</Link></p>
-
+                <input
+                    disabled={!agree}
+                    className='w-50 mx-auto btn btn-primary'
+                    type="submit" value="Register" />
+                <p>Already have an account? <Link to='/login' className='text-primary pe-auto text-decoration-none w-50 mx-auto' onClick={navigateRegister}> Login</Link></p>
+                <SocialLogin></SocialLogin>
             </form>
 
         </div>
